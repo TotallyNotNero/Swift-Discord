@@ -1,0 +1,11 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+build/
+docs/docsets/
+docs/undocumented.json
+DiscordTest/
+DiscordTestTests/
+DiscordTestUITests/
+/.idea
