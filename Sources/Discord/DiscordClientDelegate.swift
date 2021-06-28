@@ -125,6 +125,14 @@ public protocol DiscordClientDelegate : AnyObject {
     /// - parameter didCreateMessage: The message that was received.
     ///
     func client(_ client: DiscordClient, didCreateMessage message: DiscordMessage)
+    
+    ///
+    /// Called when the client receives a deleted message from Discord.
+    ///
+    /// - parameter client: The client that is calling.
+    /// - parameter didUpdateMessage: The message that was deleted.
+    ///
+    func client(_ client: DiscordClient, didDeleteMessage message: DiscordMessage)
 
     ///
     /// Called when a user adds a reaction to a message.

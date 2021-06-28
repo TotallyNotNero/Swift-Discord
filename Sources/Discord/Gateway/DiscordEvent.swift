@@ -33,7 +33,7 @@ public enum DiscordDispatchEvent : String {
     /// Message Create (Handled)
     case messageCreate = "MESSAGE_CREATE"
 
-    /// Message Delete (Not handled)
+    /// Message Delete (Handled)
     case messageDelete = "MESSAGE_DELETE"
 
     /// Message Delete Bulk (Not handled)
