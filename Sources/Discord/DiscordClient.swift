@@ -52,6 +52,9 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
 
     /// The Discord JWT token.
     public let token: DiscordToken
+    
+    /// The client's cache manager.
+    public var cache: [Snowflake : Any] = [:]
 
     /// The client's delegate.
     public weak var delegate: DiscordClientDelegate?
@@ -176,6 +179,18 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         for (_, engine) in voiceManager.get(voiceManager.voiceEngines) {
             engine.disconnect()
         }
+    }
+    
+    ///
+    /// Clears the client's cache. Every item is deleted and the cache is effectively destroyed.
+    ///
+    ///
+    open func clearCache() {
+        
+        logger.info("Clearing client cache")
+        
+        self.cache.removeAll()
+        
     }
 
     ///
