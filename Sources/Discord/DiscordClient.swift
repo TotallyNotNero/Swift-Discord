@@ -54,7 +54,7 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
     public let token: DiscordToken
     
     /// The client's cache manager.
-    public var cache: [Snowflake : Any] = [:]
+    public var cache = DiscordCache()
 
     /// The client's delegate.
     public weak var delegate: DiscordClientDelegate?
@@ -189,7 +189,7 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         
         logger.info("Clearing client cache")
         
-        self.cache.removeAll()
+        cache.clearCache()
         
     }
 
