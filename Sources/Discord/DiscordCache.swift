@@ -23,7 +23,7 @@ open class DiscordCache {
     public var guilds = [GuildID : DiscordGuild]();
     
     /// The manager of the member cache.
-    public var users = [UserID : DiscordUser]();
+    public var users = [UserID : DiscordGuildMember]();
     
     ///
     /// Clears the client's cache. Every item is deleted and the cache is effectively destroyed.
