@@ -45,6 +45,9 @@
                 <a href="../Classes/DiscordBufferedVoiceDataSource.html">DiscordBufferedVoiceDataSource</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/DiscordCache.html">DiscordCache</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/DiscordClient.html">DiscordClient</a>
               </li>
               <li class="nav-group-task">
@@ -652,6 +655,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:7Discord0A6ClientC5cacheAA0A5CacheCvp"></a>
+                    <a name="//apple_ref/swift/Property/cache" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A6ClientC5cacheAA0A5CacheCvp">cache</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The client&rsquo;s cache manager.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cache</span><span class="p">:</span> <span class="kt"><a href="../Classes/DiscordCache.html">DiscordCache</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:7Discord0A6ClientC8delegateAA0aB8Delegate_pSgvp"></a>
                     <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
                     <a class="token" href="#/s:7Discord0A6ClientC8delegateAA0aB8Delegate_pSgvp">delegate</a>
@@ -1202,6 +1232,33 @@ with the client.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">disconnect</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Discord0A6ClientC10clearCacheyyF"></a>
+                    <a name="//apple_ref/swift/Method/clearCache()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A6ClientC10clearCacheyyF">clearCache()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears the client&rsquo;s cache. Every item is deleted and the cache is effectively destroyed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">clearCache</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -2890,6 +2947,56 @@ guild. Multiple <code>guildMembersChunk</code> will be fired.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:7Discord0A6ClientC19handleMessageDelete4withySDySSypG_tF"></a>
+                    <a name="//apple_ref/swift/Method/handleMessageDelete(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A6ClientC19handleMessageDelete4withySDySSypG_tF">handleMessageDelete(with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles deleted messages from Discord. You shouldn&rsquo;t need to call this method directly.</p>
+
+<p>Override to provide additional customization around this event.</p>
+
+<p>Calls the <code>didDeleteMessage</code> delegate method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">handleMessageDelete</span><span class="p">(</span><span class="n">with</span> <span class="nv">data</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data from the event</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:7Discord0A6ClientC24handleMessageReactionAdd4withySDySSypG_tF"></a>
                     <a name="//apple_ref/swift/Method/handleMessageReactionAdd(with:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:7Discord0A6ClientC24handleMessageReactionAdd4withySDySSypG_tF">handleMessageReactionAdd(with:<wbr>)</a>
@@ -3291,7 +3398,7 @@ invocations. You shouldn&rsquo;t need to call this method directly.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2021-06-24)</p>
+          <p>&copy; 2021 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2021-07-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

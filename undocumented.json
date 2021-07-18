@@ -324,14 +324,14 @@
     },
     {
       "file": "/Users/runner/work/Swift-Discord/Swift-Discord/Sources/Discord/Gateway/DiscordEvent.swift",
-      "line": 133,
+      "line": 132,
       "symbol": "DiscordDispatchEvent.applicationCommandCreate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/Swift-Discord/Swift-Discord/Sources/Discord/Gateway/DiscordEvent.swift",
-      "line": 135,
+      "line": 134,
       "symbol": "DiscordDispatchEvent.applicationCommandUpdate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

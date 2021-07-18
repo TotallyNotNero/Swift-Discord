@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DiscordAuditLogChange Structure Reference</title>
+    <title>DiscordCache Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/DiscordAuditLogChange" class="dashAnchor"></a>
-    <a title="DiscordAuditLogChange Structure Reference"></a>
+    <a name="//apple_ref/swift/Class/DiscordCache" class="dashAnchor"></a>
+    <a title="DiscordCache Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (93% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        DiscordAuditLogChange Structure Reference
+        DiscordCache Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -536,35 +536,26 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>DiscordAuditLogChange</h1>
+            <h1>DiscordCache</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DiscordAuditLogChange</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">DiscordCache</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents a change.</p>
+            <p>The manager of the client&rsquo;s cache.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Properties"></a>
-                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Properties"></a>
-                  <h3 class="section-name"><p>Properties</p>
-</h3>
-                </div>
-              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Discord0A14AuditLogChangeV3keySSvp"></a>
-                    <a name="//apple_ref/swift/Property/key" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A14AuditLogChangeV3keySSvp">key</a>
+                    <a name="/s:7Discord0A5CacheC8messagesSDyAA9SnowflakeVAA0A7MessageVGvp"></a>
+                    <a name="//apple_ref/swift/Property/messages" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A5CacheC8messagesSDyAA9SnowflakeVAA0A7MessageVGvp">messages</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -572,14 +563,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The key for this change. Determines the types of the values.</p>
+                        <p>The manager of the message cache.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">messages</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:7Discord9MessageIDa">MessageID</a></span> <span class="p">:</span> <span class="kt"><a href="../Structs/DiscordMessage.html">DiscordMessage</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -589,9 +580,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Discord0A14AuditLogChangeV8newValueypvp"></a>
-                    <a name="//apple_ref/swift/Property/newValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A14AuditLogChangeV8newValueypvp">newValue</a>
+                    <a name="/s:7Discord0A5CacheC8channelsSDyAA9SnowflakeVAA0A12GuildChannel_pGvp"></a>
+                    <a name="//apple_ref/swift/Property/channels" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A5CacheC8channelsSDyAA9SnowflakeVAA0A12GuildChannel_pGvp">channels</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -599,14 +590,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The new value.</p>
+                        <p>The manager of the channel cache.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newValue</span><span class="p">:</span> <span class="kt">Any</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">channels</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:7Discord9ChannelIDa">ChannelID</a></span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DiscordGuildChannel.html">DiscordGuildChannel</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -616,9 +607,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Discord0A14AuditLogChangeV8oldValueypvp"></a>
-                    <a name="//apple_ref/swift/Property/oldValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A14AuditLogChangeV8oldValueypvp">oldValue</a>
+                    <a name="/s:7Discord0A5CacheC6guildsSDyAA9SnowflakeVAA0A5GuildCGvp"></a>
+                    <a name="//apple_ref/swift/Property/guilds" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A5CacheC6guildsSDyAA9SnowflakeVAA0A5GuildCGvp">guilds</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -626,14 +617,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The old value.</p>
+                        <p>The manager of the guild cache.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">oldValue</span><span class="p">:</span> <span class="kt">Any</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">guilds</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:7Discord7GuildIDa">GuildID</a></span> <span class="p">:</span> <span class="kt"><a href="../Classes/DiscordGuild.html">DiscordGuild</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Discord0A5CacheC5usersSDyAA9SnowflakeVAA0A11GuildMemberVGvp"></a>
+                    <a name="//apple_ref/swift/Property/users" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A5CacheC5usersSDyAA9SnowflakeVAA0A11GuildMemberVGvp">users</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The manager of the member cache.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:7Discord6UserIDa">UserID</a></span> <span class="p">:</span> <span class="kt"><a href="../Structs/DiscordGuildMember.html">DiscordGuildMember</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Discord0A5CacheC05clearB0yyF"></a>
+                    <a name="//apple_ref/swift/Method/clearCache()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A5CacheC05clearB0yyF">clearCache()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears the client&rsquo;s cache. Every item is deleted and the cache is effectively destroyed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">clearCache</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
