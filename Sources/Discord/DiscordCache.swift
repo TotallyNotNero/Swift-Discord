@@ -12,6 +12,8 @@ fileprivate let logger = Logger(label: "DiscordCache");
 
 /// The manager of the client's cache.
 open class DiscordCache {
+
+    // MARK: Properties
     
     /// The manager of the message cache.
     public var messages = [MessageID : DiscordMessage]();
@@ -25,6 +27,8 @@ open class DiscordCache {
     /// The manager of the member cache.
     public var users = [UserID : DiscordGuildMember]();
     
+    // MARK: Methods
+
     ///
     /// Clears the client's cache. Every item is deleted and the cache is effectively destroyed.
     ///
