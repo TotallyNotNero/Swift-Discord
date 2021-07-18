@@ -55,6 +55,18 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
     
     /// The client's cache manager.
     public var cache = DiscordCache()
+    
+    /// Whether every message sent should be cached by the client.
+    public var cacheMessages = false
+    
+    /// Whether every member should be cached by the client.
+    public var cacheMembers = false
+    
+    /// Whether every guild should be cached by the client.
+    public var cacheGuilds = false
+    
+    /// Whether every channel should be cached by the client.
+    public var cacheChannels = false
 
     /// The client's delegate.
     public weak var delegate: DiscordClientDelegate?
@@ -140,6 +152,14 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
                 fillUsers = true
             case .pruneUsers:
                 pruneUsers = true
+            case .cacheMessages:
+                cacheMessages = true
+            case .cacheMembers:
+                cacheMembers = true
+            case .cacheGuilds:
+                cacheGuilds = true
+            case .cacheChannels:
+                cacheChannels = true
             }
         }
 
@@ -523,6 +543,12 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
             guard let direct = directChannels.removeValue(forKey: channelId) else { return }
             removedChannel = direct
         }
+        
+        if removedChannel.client?.cacheChannels == true {
+            
+            removedChannel.client?.cache.channels.removeValue(forKey: removedChannel.id)
+            
+        }
 
         channelCache.removeValue(forKey: channelId)
 
@@ -550,6 +576,15 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         logger.debug("(verbose) Updated channel: \(channel)")
 
         guilds[channel.guildId]?.channels[channel.id] = channel
+        
+        // Update the cache
+        if channel.client?.cacheChannels == true {
+            
+            channel.client?.cache.channels.removeValue(forKey: channel.id)
+            
+            channel.client?.cache.channels[channel.id] = channel.guild?.channels[channel.id]
+            
+        }
 
         channelCache.removeValue(forKey: channel.id)
 
@@ -653,6 +688,12 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         guild.members[guildMember.user.id] = guildMember
         guild.memberCount += 1
 
+        if guild.client?.cacheMembers == true {
+            
+            guild.client?.cache.users[guildMember.user.id] = guildMember
+            
+        }
+        
         delegate?.client(self, didAddGuildMember: guildMember)
     }
 
@@ -674,7 +715,13 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         guild.memberCount -= 1
 
         guard let removedGuildMember = guild.members.removeValue(forKey: id) else { return }
+        
+        if guild.client?.cacheMembers == true {
+        
+            guild.client?.cache.users.removeValue(forKey: removedGuildMember.user.id)
 
+        }
+        
         logger.debug("(verbose) Removed guild member: \(removedGuildMember)")
 
         delegate?.client(self, didRemoveGuildMember: removedGuildMember)
@@ -844,6 +891,41 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
 
         let message = DiscordMessage(messageObject: data, client: self)
 
+        // Cache messsages
+        if message.client?.cacheMessages == true {
+        
+            message.client?.cache.messages[message.id] = message
+            
+        }
+        
+        // Cache guilds
+        if message.client?.cacheGuilds == true {
+            
+            let guild = message.channel!.guild!
+            message.client!.cache.guilds[message.channel!.guild!.id] = guild
+
+        }
+        
+        // Cache members
+        if message.client?.cacheMembers == true {
+            
+            let member = message.guildMember
+            
+            message.client!.cache.users[message.author.id] = member
+            
+        }
+        
+        // Cache channels
+        if message.client?.cacheChannels == true {
+            
+            let channel = message.client!.findChannel(fromId: message.channelId)!
+            
+            let c = channel.guild?.channels[channel.id]!
+            
+            message.client!.cache.channels[message.channelId] = c!
+            
+        }
+        
         logger.debug("(verbose) Message: \(message)")
 
         delegate?.client(self, didCreateMessage: message)

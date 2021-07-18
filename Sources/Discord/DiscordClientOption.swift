@@ -30,6 +30,18 @@ public enum DiscordClientOption : CustomStringConvertible, Equatable {
     /// If a presence comes in on a large guild, and we don't have that user, setting this option
     /// will cause the client to query the API for that user.
     case fillUsers
+    
+    /// If this option is selected, the client will cache all members on each guild.
+    case cacheMembers
+    
+    /// If this option is selected, the client will cache each guild a message is created on.
+    case cacheGuilds
+    
+    /// If this option is selected, the client will cache each channel a message is created on.
+    case cacheChannels
+    
+    /// If this option is selected, the client will cache each message created.
+    case cacheMessages
 
     /// The dispatch queue that events should be handled on.
     /// This is also the queue that properties should be read from.
@@ -66,6 +78,10 @@ public enum DiscordClientOption : CustomStringConvertible, Equatable {
         case .pruneUsers:           return "pruneUsers"
         case .intents:              return "intents"
         case .voiceConfiguration:   return "voiceConfiguration"
+        case .cacheMembers:         return "cacheMembers"
+        case .cacheGuilds:          return "cacheGuilds"
+        case .cacheChannels:        return "cacheChannels"
+        case .cacheMessages:        return "cacheMessages"
         }
     }
 
