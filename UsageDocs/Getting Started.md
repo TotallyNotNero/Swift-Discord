@@ -1,7 +1,7 @@
 Getting Started
 ===============
 
-The first thing that you'll need is a Discord JWT. These can be obtained by going to [your apps](https://discordapp.com/developers/applications/me) and selecting/making one. Then on the app page click "click to reveal".
+The first thing that you'll need is a Discord JWT. These can be obtained by going to [your apps](https://discordapp.com/developers/applications/me) and selecting/making one. Then on the app page head to bot, intiialize a bot, and click "click to reveal".
 
 Once you have your token you can start writing some code.
 
@@ -15,7 +15,7 @@ Configuring the client is straightforward. The intializer for the client takes t
 
 ```swift
 // client must be `DiscordClient!`
-self.client = DiscordClient(token: "Bot myjwt.from.discord", delegate: self, configuration: [.log(.info)])
+self.client = DiscordClient(token: "Bot TOKENGOESHERE", delegate: self, configuration: [.log(.info)])
 ```
 
 It's important to note that we've added "Bot" in front of the token. This is tell Discord that this token represents a bot token. This is required unless the token is a user token. If the token is an OAuth token then the token should be prefaced with "Bearer". The configuration used in this example turns on the most basic logging. More about the different configurations available can be found on the [DiscordClientOption](./Enums/DiscordClientOption.html) page.

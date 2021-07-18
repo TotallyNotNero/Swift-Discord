@@ -17,7 +17,7 @@ open class DiscordCache {
     public var messages = [MessageID : DiscordMessage]();
     
     /// The manager of the channel cache.
-    public var channels = [ChannelID : DiscordGuildTextChannel]();
+    public var channels = [ChannelID : DiscordGuildChannel]();
     
     /// The manager of the guild cache.
     public var guilds = [GuildID : DiscordGuild]();

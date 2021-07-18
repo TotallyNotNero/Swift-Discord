@@ -33,9 +33,17 @@ dispatchMain()
 ## Features
 
 - macOS and Linux support
-- v8 API (including interactions, slash commands and message components)
+- v9 API (including interactions, slash commands, stickers and message components)
 - Configurable sharding
 - Voice support
+- Customizable cache
+
+## Caching
+This library fork introduces caching. Because this is a breaking change, it is not forced, however it is strongly recommended. The `DiscordCache` class handles it, caching messages, guilds, members and channels and storing them in a dictionary. A function, called `clearCache` clears the cache and is recommended to be ran either on the ready event or periodically, using DispatchQueue. 
+
+**What are the advantages to caching?**
+- Faster performance
+- Easy fetching of guild/message/channel/user objects
 
 ## Requirements
 
@@ -50,4 +58,4 @@ dispatchMain()
 
 ## Usage
 
-Checkout the [getting started](https://nuclearace.github.io/SwiftDiscord/getting-started.html) page for a quickstart guide.
+Checkout the [Getting Started](https://swiftdiscord.etronicindustries.org/getting-started.html) page for a quickstart guide.
