@@ -583,6 +583,21 @@
 <li>Faster performance</li>
 <li>Easy fetching of guild/message/channel/user objects</li>
 </ul>
+
+<p><strong>How do I use caching?</strong></p>
+
+<ol>
+<li>First, initialize your client using the example above.</li>
+<li>In your ClientOptions, specify what you want cached. You can choose between <code>messages</code>, <code>guilds</code>, <code>members</code> and <code>channels</code>, or you can leave it blank to cache nothing.</li>
+</ol>
+
+<p>To access your cache, simply run <code>client.cache.cachetype[correspondingID]</code></p>
+
+<p>Example: </p>
+<pre class="highlight javascript"><code><span class="nx">client</span><span class="p">.</span><span class="nx">cache</span><span class="p">.</span><span class="nx">messages</span><span class="p">[</span><span class="nx">message</span><span class="p">.</span><span class="nx">id</span><span class="p">].</span><span class="nx">author</span><span class="p">.</span><span class="nx">username</span>
+</code></pre>
+
+<p>This will obviously return the username of the message&rsquo;s author.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
@@ -594,6 +609,11 @@
     <code>ffmpeg</code> (Without FFmpeg you must send raw audio)
 
 </div>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Add this .git URL to your <a href="https://prnt.sc/1cuo4pc">Swift Package file</a>.</p>
+
+<p>Be sure to use this library in a bot that has been created as a Swift Executable Package - after, you may generate an xcodeproj if you wish.</p>
 <h2 id='building' class='heading'>Building</h2>
 
 <p><code>swift build</code></p>
