@@ -23,7 +23,11 @@ let package = Package(
     name: "swift-discord",
     platforms: [.macOS(.v10_15)],
     products: [
-        .library(name: "Discord", targets: ["Discord"])
+        .library(
+            name: "Discord",
+            type: .dynamic,
+            targets: ["Discord"]
+           )
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/websocket-kit.git", .upToNextMinor(from: "2.1.0")),

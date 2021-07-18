@@ -52,6 +52,9 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
 
     /// The Discord JWT token.
     public let token: DiscordToken
+    
+    /// The client's cache manager.
+    public var cache = DiscordCache()
 
     /// The client's delegate.
     public weak var delegate: DiscordClientDelegate?
@@ -177,6 +180,18 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
             engine.disconnect()
         }
     }
+    
+    ///
+    /// Clears the client's cache. Every item is deleted and the cache is effectively destroyed.
+    ///
+    ///
+    open func clearCache() {
+        
+        logger.info("Clearing client cache")
+        
+        cache.clearCache()
+        
+    }
 
     ///
     /// Finds a channel by its snowflake.
@@ -227,6 +242,7 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         switch event {
         case .presenceUpdate:        handlePresenceUpdate(with: eventData)
         case .messageCreate:         handleMessageCreate(with: eventData)
+        case .messageDelete:         handleMessageDelete(with: eventData)
         case .messageUpdate:         handleMessageUpdate(with: eventData)
         case .messageReactionAdd:    handleMessageReactionAdd(with: eventData)
         case .messageReactionRemove: handleMessageReactionRemove(with: eventData)
@@ -831,6 +847,25 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         logger.debug("(verbose) Message: \(message)")
 
         delegate?.client(self, didCreateMessage: message)
+    }
+    
+    ///
+    /// Handles deleted messages from Discord. You shouldn't need to call this method directly.
+    ///
+    /// Override to provide additional customization around this event.
+    ///
+    /// Calls the `didDeleteMessage` delegate method.
+    ///
+    /// - parameter with: The data from the event
+    ///
+    open func handleMessageDelete(with data: [String: Any]) {
+        logger.info("Handling message delete")
+
+        let message = DiscordMessage(messageObject: data, client: self)
+
+        logger.debug("(verbose) Message: \(message)")
+
+        delegate?.client(self, didDeleteMessage: message)
     }
 
     /// Used to get fields for reaction notifications since add and remove are very similar

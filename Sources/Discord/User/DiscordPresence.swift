@@ -111,6 +111,12 @@ public enum DiscordActivityType : Int, Encodable {
 
     /// Listening to something.
     case listening
+    
+    /// Watching something.
+    case watching
+    
+    /// Competing in something
+    case competing
 }
 
 /// Represents a game

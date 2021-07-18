@@ -138,6 +138,13 @@ public protocol DiscordDispatchEventHandler {
 	/// - parameter with: The data from the event
 	///
 	func handleMessageUpdate(with data: [String: Any])
+    
+    ///
+    /// Handles deleted messages from Discord.
+    ///
+    /// - parameter with: The data from the event
+    ///
+    func handleMessageDelete(with data: [String: Any])
 
 	///
 	/// Handles presence updates from Discord.
