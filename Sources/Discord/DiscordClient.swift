@@ -901,7 +901,7 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         // Cache guilds
         if message.client?.cacheGuilds == true {
             
-            let guild = message.channel!.guild!
+            let guild = message.channel?.guild!
             message.client!.cache.guilds[message.channel!.guild!.id] = guild
 
         }
