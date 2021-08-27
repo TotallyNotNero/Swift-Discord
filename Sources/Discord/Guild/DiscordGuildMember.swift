@@ -44,6 +44,14 @@ public struct DiscordGuildMember {
             guild?.modifyMember(self, options: [.deaf(newValue)])
         }
     }
+    
+    /// The voice state of this member.
+    public var voice: DiscordVoiceState {
+        get {
+            return (self.guild?.voiceStates[self.user.id])!
+           
+        }
+    }
 
     /// If this member has a guild object attached, this returns the `DiscordRoles` for the member.
     /// If a guild is unavailable, you can call `roles(for:)` on this member's guild directly.
