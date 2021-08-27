@@ -46,9 +46,9 @@ public struct DiscordGuildMember {
     }
     
     /// The voice state of this member.
-    public var voice: DiscordVoiceState {
+    public var voice: DiscordVoiceState? {
         get {
-            return (self.guild?.voiceStates[self.user.id])!
+            return self.guild?.voiceStates[self.user.id]
         }
     }
 
