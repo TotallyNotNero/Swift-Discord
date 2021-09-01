@@ -19,6 +19,7 @@ import Dispatch
 import Foundation
 import Logging
 import NIO
+import WebSocketKit
 
 fileprivate let logger = Logger(label: "DiscordSharding")
 
@@ -179,7 +180,10 @@ open class DiscordShardManager : DiscordShardDelegate, Lockable {
     public var token: DiscordToken {
         return delegate!.token
     }
-
+    
+    /// The WebSocket responsible for the shards
+    public var ws: WebSocket?
+    
     /// The individual shards.
     public var shards = [DiscordShard]()
 
@@ -232,7 +236,9 @@ open class DiscordShardManager : DiscordShardDelegate, Lockable {
     ///
     open func createShardWithDelegate(_ delegate: DiscordShardManagerDelegate, withShardNum shardNum: Int,
                                       totalShards: Int, intents: DiscordGatewayIntent, onloop: EventLoop) -> DiscordShard {
-        return DiscordEngine(delegate: self, shardNum: shardNum, numShards: totalShards, intents: intents, onLoop: onloop)
+        let engine = DiscordEngine(delegate: self, shardNum: shardNum, numShards: totalShards, intents: intents, onLoop: onloop)
+        self.ws = engine.websocket
+        return engine
     }
 
     ///
