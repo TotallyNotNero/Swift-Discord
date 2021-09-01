@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DiscordEmoji Structure Reference</title>
+    <title>DiscordWebsocket Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/DiscordEmoji" class="dashAnchor"></a>
-    <a title="DiscordEmoji Structure Reference"></a>
+    <a name="//apple_ref/swift/Class/DiscordWebsocket" class="dashAnchor"></a>
+    <a title="DiscordWebsocket Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (93% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        DiscordEmoji Structure Reference
+        DiscordWebsocket Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -539,15 +539,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>DiscordEmoji</h1>
+            <h1>DiscordWebsocket</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DiscordEmoji</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">DiscordWebsocket</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents an Emoji.</p>
+            <p>Handler of the raw websocket dispatch events</p>
 
           </section>
           <section class="section task-group-section">
@@ -565,9 +565,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Discord0A5EmojiV2idAA9SnowflakeVSgvp"></a>
-                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV2idAA9SnowflakeVSgvp">id</a>
+                    <a name="/s:7Discord0A9WebsocketC14voiceStateDataSDySSypGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/voiceStateData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A9WebsocketC14voiceStateDataSDySSypGSgvp">voiceStateData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -575,14 +575,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The snowflake id of the emoji.  Nil if the emoji is a unicode emoji</p>
+                        <p>The raw voice state data sent from the dispatch</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7Discord7EmojiIDa">EmojiID</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">voiceStateData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span></code></pre>
 
                         </div>
                       </div>
@@ -592,9 +592,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Discord0A5EmojiV7managedSbvp"></a>
-                    <a name="//apple_ref/swift/Property/managed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV7managedSbvp">managed</a>
+                    <a name="/s:7Discord0A9WebsocketC15voiceServerDataSDySSypGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/voiceServerData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Discord0A9WebsocketC15voiceServerDataSDySSypGSgvp">voiceServerData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -602,122 +602,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether this is a managed emoji.</p>
+                        <p>The raw voice server data sent from the dispatch</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">managed</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Discord0A5EmojiV8animatedSbvp"></a>
-                    <a name="//apple_ref/swift/Property/animated" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV8animatedSbvp">animated</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Whether this is an animated emoji.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Discord0A5EmojiV4nameSSvp"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV4nameSSvp">name</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The name of the emoji or unicode representation if it&rsquo;s a unicode emoji.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Discord0A5EmojiV13requireColonsSbvp"></a>
-                    <a name="//apple_ref/swift/Property/requireColons" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV13requireColonsSbvp">requireColons</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Whether this emoji requires colons.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">requireColons</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Discord0A5EmojiV5rolesSayAA9SnowflakeVGvp"></a>
-                    <a name="//apple_ref/swift/Property/roles" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Discord0A5EmojiV5rolesSayAA9SnowflakeVGvp">roles</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An array of role snowflake ids this emoji is active for.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">roles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:7Discord6RoleIDa">RoleID</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">voiceServerData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span></code></pre>
 
                         </div>
                       </div>
