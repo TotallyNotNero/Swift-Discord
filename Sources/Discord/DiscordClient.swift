@@ -86,6 +86,9 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
 
     /// The gateway intents.
     public var intents = DiscordGatewayIntent.unprivilegedIntents
+    
+    /// The public handler of the raw dispatch events
+    public var ws = DiscordWebsocket()
 
     /// Whether large guilds should have their users fetched as soon as they are created.
     public var fillLargeGuilds = false
@@ -1129,8 +1132,12 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         let info = DiscordVoiceServerInformation(voiceServerInformationObject: data)
 
         voiceManager.voiceServerInformations[info.guildId] = info
+        
+        self.ws.voiceServerData = data
 
         self.startVoiceConnection(info.guildId)
+        
+        delegate?.client(self, didRecieveVoiceServerUpdate: info)
     }
 
     ///
@@ -1148,6 +1155,8 @@ open class DiscordClient : DiscordClientSpec, DiscordDispatchEventHandler, Disco
         guard let guildId = Snowflake(data["guild_id"] as? String) else { return }
 
         let state = DiscordVoiceState(voiceStateObject: data, guildId: guildId)
+        
+        self.ws.voiceStateData = data
 
         logger.debug("(verbose) Voice state: \(state)")
 

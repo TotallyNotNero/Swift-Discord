@@ -223,6 +223,14 @@ public protocol DiscordClientDelegate : AnyObject {
     /// - parameter didReceiveVoiceStateUpdate: The voice state that was received.
     ///
     func client(_ client: DiscordClient, didReceiveVoiceStateUpdate voiceState: DiscordVoiceState)
+    
+    ///
+    /// Called when the client receives a voice state update.
+    ///
+    /// - parameter client: The client that is calling.
+    /// - parameter didReceiveVoiceServerUpdate: The voice server that was updated.
+    ///
+    func client(_ client: DiscordClient, didRecieveVoiceServerUpdate voiceServer: DiscordVoiceServerInformation)
 
     ///
     /// Called when the client is ready to start sending voice data.
@@ -374,6 +382,9 @@ public extension DiscordClientDelegate {
 
     /// Default.
     func client(_ client: DiscordClient, didReceiveVoiceStateUpdate voiceState: DiscordVoiceState) { }
+
+    /// Default.
+    func client(_ client: DiscordClient, didRecieveVoiceServerUpdate voiceServer: DiscordVoiceServerInformation) { }
 
     /// Default.
     func client(_ client: DiscordClient, isReadyToSendVoiceWithEngine engine: DiscordVoiceEngine) { }
